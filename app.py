@@ -83,6 +83,10 @@ class CNNImageClassifier:
 
         st.subheader("Upload an Image for Classification")
         uploaded_image = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
+        temp_dir_name = 'tempDir'
+
+        if not os.path.exists(temp_dir_name):
+            os.mkdir(temp_dir_name)
 
         if uploaded_image is not None:
             try:
