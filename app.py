@@ -273,14 +273,12 @@ class LogisticRegressionFruitClassifier:
 
 
 class FruitClassifierUsingDenseNet:
-    def __init__(self):
+    def _init_(self):
         # self.selected_model = None
         self.model = None
 
     def load_model(self):
-        # self.model = joblib.load('densenet_fruit_classifier.pkl')
-        with open('densenet_fruit_classifier.pkl', 'rb') as file:
-            self.model = joblib.load(file)
+        self.model = tf.keras.models.load_model('densenet_fruit_classifierr.h5')
     
     def load_and_preprocess_image(self, img):
         img = img.resize(IMAGE_SIZE, Image.LANCZOS)
@@ -371,7 +369,7 @@ class FruitClassifierUsingDenseNet:
 
     def simulate_processing_time(self):
         time.sleep(2)
-
+        
 def main():
     st.title("Fresh and Rotten Fruits Classification")
 
